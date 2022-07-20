@@ -3,8 +3,12 @@ import { IAppointment } from '../../Entities/Appointment';
 
 export interface IAppointmentRepository {
   AddAppointment(appointment: IAppointment): Promise<IAppointment>;
-  EditAppointment(id: string, userRef: string, appointment: IAppointment): Promise<IAppointment>;
-  GetAllAppointment(userRef: string): Promise<IAppointment[]>;
-  GetSingleAppointment(id: string, userRef: string): Promise<IAppointment>;
-  RemoveAppointment(id: string, userRef: string): void;
+  EditAppointment(
+    id: string,
+    customerRef: string,
+    appointment: IAppointment
+    ): Promise<IAppointment | null>;
+  GetAllAppointment(customerRef: string): Promise<IAppointment[]>;
+  GetSingleAppointment(id: string, customerRef: string): Promise<IAppointment | null>;
+  RemoveAppointment(id: string, customerRef: string): Promise<void> ;
 }

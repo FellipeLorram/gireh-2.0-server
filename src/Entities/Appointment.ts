@@ -4,6 +4,6 @@ export interface IAppointment {
   customerRef: string;
   id: string;
   anaminesis: string;
-  rightEye: EyeInformation;
-  leftEye: EyeInformation;
+  rightEye?: EyeInformation;
+  leftEye?: EyeInformation;
 }
