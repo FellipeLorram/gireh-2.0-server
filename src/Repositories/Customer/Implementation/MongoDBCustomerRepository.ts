@@ -26,3 +26,5 @@ export class MongoDBCustomerRepository implements ICustomerRepository {
     await CustomerModel.findOneAndDelete({ id });
   }
 }
+
+export const patientRepository = new MongoDBCustomerRepository();
