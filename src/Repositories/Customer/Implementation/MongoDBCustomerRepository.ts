@@ -9,7 +9,12 @@ export class MongoDBCustomerRepository implements ICustomerRepository {
   }
 
   async EditCustomer(id: string, customer: ICustomer): Promise<ICustomer | null> {
-    const editedCustomer = await CustomerModel.findOneAndUpdate({ id }, customer);
+    const editedCustomer = await CustomerModel.findOneAndUpdate({ id }, {
+      name: customer.name,
+      address: customer.address,
+      phone: customer.phone,
+      id,
+    });
     return editedCustomer;
   }
 

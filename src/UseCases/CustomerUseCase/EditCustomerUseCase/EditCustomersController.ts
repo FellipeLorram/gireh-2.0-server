@@ -15,7 +15,7 @@ export class EditCustomersController {
   async handle(req: Request, res: Response): Promise<Response> {
     try {
       const customer = await this.editCustomersUseCase
-        .execute(req.body);
+        .execute(req.params.id, req.body);
 
       return this.messenger.sendResponse(res, 200, customer);
     } catch (error) {

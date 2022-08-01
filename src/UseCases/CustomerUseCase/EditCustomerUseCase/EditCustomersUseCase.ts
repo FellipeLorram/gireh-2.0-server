@@ -10,8 +10,8 @@ export class EditCustomersUseCase {
   ) {
   }
 
-  async execute(user: IUser): Promise<ICustomer | null> {
-    const customer = await this.customerRepository.EditCustomer(user.id, user);
+  async execute(id: string, user: IUser): Promise<ICustomer | null> {
+    const customer = await this.customerRepository.EditCustomer(id, user);
     return customer;
   }
 }
