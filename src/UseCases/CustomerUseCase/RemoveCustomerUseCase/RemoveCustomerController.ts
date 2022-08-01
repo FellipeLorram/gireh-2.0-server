@@ -14,20 +14,16 @@ export class DeleteCustomerController {
 
   async handle(req: Request, res: Response): Promise<Response> {
     try {
-      const customer = await this.deleteCustomerUseCase
-        .execute(req.body.id);
+      await this.deleteCustomerUseCase
+        .execute(req.params.id);
 
-      return res.status(200).json(customer);
+      return this.messenger.sendResponse(res, 200, 'Customer removed sucessfully');
     } catch (error) {
       if (error instanceof Error) {
-        return res.status(400).json({
-          message: error.message || 'Unexpected error.',
-        });
+        return this.messenger.sendResponse(res, 400, error.message || 'Unexpected error');
       }
 
-      return res.status(500).json({
-        message: 'Unexpected error.',
-      });
+      return this.messenger.sendResponse(res, 500, 'Unexpected error');
     }
   }
 }
