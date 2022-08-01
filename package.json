@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpileOnly --ignore-watch node_modules --no-notify src/server.ts",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "start": "node dist/server.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
@@ -41,6 +42,7 @@
   },
   "dependencies": {
     "@types/jsonwebtoken": "^8.5.8",
+    "@types/uuidv4": "^5.0.0",
     "axios": "^0.27.2",
     "connect-mongo": "^4.6.0",
     "dotenv": "^16.0.0",
@@ -50,6 +52,7 @@
     "mongoose": "^6.2.3",
     "nodemon": "^2.0.15",
     "shelljs": "^0.8.5",
-    "supertest": "^6.2.2"
+    "supertest": "^6.2.2",
+    "uuidv4": "^6.2.13"
   }
 }
