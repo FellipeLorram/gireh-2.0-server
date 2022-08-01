@@ -16,7 +16,9 @@ export class AddCustomersController {
 
   async handle(req: Request, res: Response): Promise<Response> {
     try {
-      const { name, address, phone } = req.body as ICustomer;
+      const {
+        name, address, phone, age,
+      } = req.body as ICustomer;
       const id = uuid();
       const customer = await this.addCustomersUseCase
         .execute({
@@ -24,6 +26,7 @@ export class AddCustomersController {
           name,
           address,
           phone,
+          age,
         });
 
       return this.messenger.sendResponse(res, 200, customer);

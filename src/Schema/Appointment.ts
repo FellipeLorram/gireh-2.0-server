@@ -20,6 +20,7 @@ const AppointmentSchema = new Schema({
     acv: '',
     ophthalmoscopy: '',
   },
+  createdAt: { type: Date, default: Date.now() },
 });
 
 const AppointmentModel = model('Appointment', AppointmentSchema);

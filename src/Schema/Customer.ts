@@ -6,6 +6,7 @@ const CustomerSchema = new Schema({
   address: { type: String, required: false },
   age: { type: Number, required: false },
   phone: { type: Array, required: false },
+  createdAt: { type: Date, required: false, default: Date.now() },
 });
 
 export const CustomerModel = model('Customer', CustomerSchema);

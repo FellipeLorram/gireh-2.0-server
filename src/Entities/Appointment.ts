@@ -6,4 +6,5 @@ export interface IAppointment {
   anaminesis: string;
   rightEye?: EyeInformation;
   leftEye?: EyeInformation;
+  createdAt?: Date;
 }

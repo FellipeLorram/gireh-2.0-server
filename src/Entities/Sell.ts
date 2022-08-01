@@ -13,4 +13,5 @@ export interface ISell {
   total: number;
   remains: number;
   payments: Payments[];
+  createdAt?: Date;
 }

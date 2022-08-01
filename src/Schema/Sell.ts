@@ -29,6 +29,7 @@ const SellSchema = new Schema({
     type: '',
     value: 0,
   }],
+  createdAt: { type: Date, required: false, default: Date.now() },
 });
 
 const SellModel = model('Sell', SellSchema);

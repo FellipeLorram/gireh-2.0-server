@@ -4,4 +4,5 @@ export interface ICustomer {
   address?: string;
   phone?: string[];
   age?: number;
+  createdAt?: Date;
 }
