@@ -11,7 +11,7 @@ export class GetSingleCustomersController {
   async handle(req: Request, res: Response): Promise<Response> {
     try {
       const customer = await this.getSingleCustomersUseCase
-        .execute(req.body.id);
+        .execute(req.params.id);
 
       return res.status(200).json(customer);
     } catch (error) {

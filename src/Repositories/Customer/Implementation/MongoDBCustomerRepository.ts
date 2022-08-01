@@ -13,6 +13,7 @@ export class MongoDBCustomerRepository implements ICustomerRepository {
       name: customer.name,
       address: customer.address,
       phone: customer.phone,
+      age: customer.age,
       id,
     });
     return editedCustomer;
@@ -23,7 +24,7 @@ export class MongoDBCustomerRepository implements ICustomerRepository {
   }
 
   async GetSingleCustomer(id: string): Promise<ICustomer | null> {
-    const customer = CustomerModel.findById(id);
+    const customer = CustomerModel.findOne({ id });
     return customer;
   }
 
