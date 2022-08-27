@@ -33,4 +33,4 @@ export class MongoDBCustomerRepository implements ICustomerRepository {
   }
 }
 
-export const patientRepository = new MongoDBCustomerRepository();
+export const customerRepository = new MongoDBCustomerRepository();

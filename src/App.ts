@@ -1,6 +1,6 @@
 import express from 'express';
 import helmet from 'helmet';
-import { customerRoutes } from './Routes/_Index';
+import { customerRoutes, sellRoutes } from './Routes/_Index';
 // import {
 //   homeRoutes,
 //   patientRoutes,
@@ -25,7 +25,7 @@ class App {
 
   routes() {
     this.app.use('/', customerRoutes);
-    // this.app.use('/', userRoutes);
+    this.app.use('/', sellRoutes);
     // this.app.use('/', tokenRoutes);
     // this.app.use('/', patientRoutes);
   }

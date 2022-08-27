@@ -27,3 +27,5 @@ export class MongoDBSellsRepository implements ISellRepository {
     return editedSell;
   }
 }
+
+export const sellsRepository = new MongoDBSellsRepository();
