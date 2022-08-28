@@ -6,6 +6,6 @@ export interface ISellRepository {
   EditSell(id: string, customerRef: string, Sell: ISell): Promise<ISell | null>;
   GetAllCustomerSells(customerRef: string): Promise<ISell[]>;
   GetAllSells(): Promise<ISell[]>;
-  GetSingleSell(id: string, customerRef: string): Promise<ISell | null>;
+  GetSingleSell(id: string): Promise<ISell | null>;
   RemoveSell(id: string): Promise<void>;
 }

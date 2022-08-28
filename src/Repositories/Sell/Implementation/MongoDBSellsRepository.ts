@@ -13,8 +13,8 @@ class MongoDBSellsRepository implements ISellRepository {
     return allCustomerSells;
   }
 
-  async GetSingleSell(id: string, customerRef: string): Promise<ISell | null> {
-    const sell = await SellModel.findOne({ _id: id, customerRef });
+  async GetSingleSell(id: string): Promise<ISell | null> {
+    const sell = await SellModel.findOne({ _id: id });
     return sell;
   }
 

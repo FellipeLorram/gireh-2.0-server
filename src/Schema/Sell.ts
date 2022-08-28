@@ -1,5 +1,11 @@
 import { Schema, model } from 'mongoose';
 
+const paymentsSchemma = new Schema({
+  paymentType: { type: String, required: true },
+  value: { type: Number, required: true },
+  date: { type: Date, required: true },
+});
+
 const SellSchema = new Schema({
   customerRef: { type: String, required: true },
   id: { type: String, required: true },
@@ -25,11 +31,7 @@ const SellSchema = new Schema({
   }],
   total: { type: Number, required: true },
   remains: { type: Number, required: true },
-  payments: [{
-    type: '',
-    value: 0,
-    date: '',
-  }],
+  payments: [paymentsSchemma],
   createdAt: { type: Date, required: false, default: Date.now() },
 });
 
