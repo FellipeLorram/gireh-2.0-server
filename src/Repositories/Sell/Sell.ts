@@ -7,5 +7,5 @@ export interface ISellRepository {
   GetAllCustomerSells(customerRef: string): Promise<ISell[]>;
   GetAllSells(): Promise<ISell[]>;
   GetSingleSell(id: string, customerRef: string): Promise<ISell | null>;
-  RemoveSell(id: string, customerRef: string): Promise<void>;
+  RemoveSell(id: string): Promise<void>;
 }
