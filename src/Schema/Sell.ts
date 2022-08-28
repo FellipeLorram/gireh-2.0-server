@@ -28,7 +28,7 @@ const SellSchema = new Schema({
   payments: [{
     type: '',
     value: 0,
-    date: Date.now(),
+    date: '22-06-00',
   }],
   createdAt: { type: Date, required: false, default: Date.now() },
 });

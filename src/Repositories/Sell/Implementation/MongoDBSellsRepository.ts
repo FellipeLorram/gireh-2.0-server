@@ -2,15 +2,15 @@ import { ISell } from '../../../Entities/Sell';
 import SellModel from '../../../Schema/Sell';
 import { ISellRepository } from '../Sell';
 
-export class MongoDBSellsRepository implements ISellRepository {
+class MongoDBSellsRepository implements ISellRepository {
   async AddSell(Sell: ISell): Promise<ISell> {
     const newSell = await SellModel.create(Sell);
     return newSell;
   }
 
-  async GetAllSells(customerRef: string): Promise<ISell[]> {
-    const allSells = await SellModel.find({ customerRef });
-    return allSells;
+  async GetAllCustomerSells(customerRef: string): Promise<ISell[] | []> {
+    const allCustomerSells = await SellModel.find({ customerRef });
+    return allCustomerSells;
   }
 
   async GetSingleSell(id: string, customerRef: string): Promise<ISell | null> {
@@ -25,6 +25,10 @@ export class MongoDBSellsRepository implements ISellRepository {
   async EditSell(id: string, customerRef: string, Sell: ISell): Promise<ISell | null> {
     const editedSell = await SellModel.findOneAndUpdate({ id, customerRef }, Sell);
     return editedSell;
+  }
+
+  async GetAllSells(): Promise<ISell[]> {
+    return SellModel.find().sort({ created_at: -1 });
   }
 }
 
