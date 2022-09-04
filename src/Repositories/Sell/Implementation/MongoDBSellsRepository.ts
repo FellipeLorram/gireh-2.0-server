@@ -14,16 +14,16 @@ class MongoDBSellsRepository implements ISellRepository {
   }
 
   async GetSingleSell(id: string): Promise<ISell | null> {
-    const sell = await SellModel.findOne({ _id: id });
+    const sell = await SellModel.findOne({ id });
     return sell;
   }
 
   async RemoveSell(id: string): Promise<void> {
-    await SellModel.findOneAndDelete({ _id: id });
+    await SellModel.findOneAndDelete({ id });
   }
 
-  async EditSell(id: string, customerRef: string, Sell: ISell): Promise<ISell | null> {
-    const editedSell = await SellModel.findOneAndUpdate({ _id: id, customerRef }, Sell);
+  async EditSell(id: string, Sell: ISell): Promise<ISell | null> {
+    const editedSell = await SellModel.findOneAndUpdate({ id }, Sell);
     return editedSell;
   }
 

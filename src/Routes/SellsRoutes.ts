@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import { Router, Request, Response } from 'express';
 import { addSellController } from '../UseCases/SellUseCase/AddSellUseCase/_Index';
+import { editSellController } from '../UseCases/SellUseCase/EditSellUseCase/_Index';
 import { getAllCustomerSellsController } from '../UseCases/SellUseCase/GetAllCustomerSellsUseCase/_Index';
 import { getAllSellController } from '../UseCases/SellUseCase/GetAllSellsUseCase/_Index';
 import { getSingleSellController } from '../UseCases/SellUseCase/GetSingleSellUseCase/_Index';
@@ -13,7 +14,7 @@ sellRouter.get('/customer-sells/:id', (req: Request, res: Response) => getAllCus
 sellRouter.get('/sell/:id', (req: Request, res: Response) => getSingleSellController.handle(req, res));
 
 sellRouter.delete('/remove-sell/:id', (req: Request, res: Response) => deleteSellController.handle(req, res));
-// sellRouter.post('/edit-sell/:id', (req: Request, res: Response) => editSellController.handle(req, res));
+sellRouter.post('/edit-sell/:id', (req: Request, res: Response) => editSellController.handle(req, res));
 sellRouter.post('/add-sell', (req: Request, res: Response) => addSellController.handle(req, res));
 
 export default sellRouter;

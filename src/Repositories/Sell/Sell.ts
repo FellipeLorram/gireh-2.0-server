@@ -3,7 +3,7 @@ import { ISell } from '../../Entities/Sell';
 
 export interface ISellRepository {
   AddSell(Sell: ISell): Promise<ISell>;
-  EditSell(id: string, customerRef: string, Sell: ISell): Promise<ISell | null>;
+  EditSell(id: string, Sell: ISell): Promise<ISell | null>;
   GetAllCustomerSells(customerRef: string): Promise<ISell[]>;
   GetAllSells(): Promise<ISell[]>;
   GetSingleSell(id: string): Promise<ISell | null>;
