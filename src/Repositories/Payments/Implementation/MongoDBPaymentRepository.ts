@@ -18,6 +18,10 @@ class MongoDBPaymentsRepository implements IPaymentsRepository {
   async removePayment(id: string): Promise<void> {
     PaymentModel.findOneAndDelete({ id });
   }
+
+  async getPayment(id: string): Promise<Payment | null> {
+    return PaymentModel.findOne({ id });
+  }
 }
 
 export const paymentsRepository = new MongoDBPaymentsRepository();

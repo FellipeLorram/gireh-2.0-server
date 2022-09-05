@@ -6,4 +6,5 @@ export interface IPaymentsRepository {
   removePayment(id: string): Promise<void>;
   getAllPayments(): Promise<Payment[]>;
   getAllSellsPayments(sellRef: string): Promise<Payment[]>;
+  getPayment(id: string): Promise<Payment | null>;
 }

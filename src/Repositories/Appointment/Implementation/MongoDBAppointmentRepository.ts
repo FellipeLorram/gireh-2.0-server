@@ -4,31 +4,29 @@ import { IAppointmentRepository } from '../Appointment';
 
 export class MongoDBAppointmentRepository implements IAppointmentRepository {
   async AddAppointment(appointment: IAppointment): Promise<IAppointment> {
-    const newAppointment = await AppointmentModel.create(appointment);
-    return newAppointment;
+    return AppointmentModel.create(appointment);
   }
 
   async EditAppointment(
     id: string,
-    customerRef: string,
     appointment: IAppointment,
   ): Promise<IAppointment | null> {
-    const editedAppointment = await AppointmentModel
-      .findOneAndUpdate({ id, customerRef }, appointment);
-    return editedAppointment;
+    return AppointmentModel.findOneAndUpdate({ id }, appointment);
   }
 
-  async RemoveAppointment(id: string, customerRef: string): Promise<void> {
-    await AppointmentModel.deleteOne({ id, customerRef });
+  async RemoveAppointment(id: string): Promise<void> {
+    await AppointmentModel.deleteOne({ id });
   }
 
-  async GetAllAppointment(customerRef: string): Promise<IAppointment[]> {
-    const customerAppointments = await AppointmentModel.find({ customerRef });
-    return customerAppointments;
+  async GetAllCustomerAppointments(customerRef: string): Promise<IAppointment[]> {
+    return AppointmentModel.find({ customerRef });
   }
 
-  async GetSingleAppointment(id: string, customerRef: string): Promise<IAppointment | null> {
-    const appointment = await AppointmentModel.findOne({ id, customerRef });
-    return appointment;
+  async GetSingleAppointment(id: string): Promise<IAppointment | null> {
+    return AppointmentModel.findOne({ id });
+  }
+
+  async GetAppointments(): Promise<IAppointment[]> {
+    return AppointmentModel.find().sort({ createdAt: -1 });
   }
 }
