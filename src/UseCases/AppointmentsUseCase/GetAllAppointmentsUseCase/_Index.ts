@@ -1,9 +1,10 @@
-import { sellsRepository } from '../../../Repositories/Sell/Implementation/MongoDBSellsRepository';
-import { GetAllSellsController } from './GetAllSellsController';
-import { GetAllSellsUseCase } from './GetAllSellsUseCase';
+import { appointmentRepository } from '../../../Repositories/Appointment/Implementation/MongoDBAppointmentRepository';
+import { GetAllAppointmentsController } from './GetAllAppointmentsController';
+import { GetAllAppointmentsUseCase } from './GetAllAppointmentsUseCase';
 import { messenger } from '../../../Utils/Messenger/Messenger';
 
-const getAllSellsUseCase = new GetAllSellsUseCase(sellsRepository);
-const getAllSellController = new GetAllSellsController(getAllSellsUseCase, messenger);
+const getAllAppointmentsUseCase = new GetAllAppointmentsUseCase(appointmentRepository);
+const getAllAppointmentsController = new
+GetAllAppointmentsController(getAllAppointmentsUseCase, messenger);
 
-export { getAllSellController };
+export { getAllAppointmentsController };

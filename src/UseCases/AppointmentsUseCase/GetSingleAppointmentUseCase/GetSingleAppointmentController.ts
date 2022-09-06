@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
 import { IMessenger } from '../../../Utils/Messenger/Messenger';
-import { GetAllSellsUseCase } from './GetAllSellsUseCase';
+import { GetSingleAppointmentUseCase } from './GetSingleAppointmentUseCase';
 
-export class GetAllSellsController {
+export class GetSingleAppointmentController {
   constructor(
     // eslint-disable-next-line no-unused-vars
-    private getAllSellUseCase: GetAllSellsUseCase,
+    private getSingleAppointmentUseCase: GetSingleAppointmentUseCase,
     private messenger: IMessenger,
     // eslint-disable-next-line no-empty-function
   ) {
@@ -14,10 +14,10 @@ export class GetAllSellsController {
 
   async handle(req: Request, res: Response): Promise<Response> {
     try {
-      const Sell = await this.getAllSellUseCase
-        .execute();
+      const appointment = await this.getSingleAppointmentUseCase
+        .execute(req.params.id);
 
-      return this.messenger.sendResponse(res, 200, Sell);
+      return this.messenger.sendResponse(res, 200, appointment);
     } catch (error) {
       if (error instanceof Error) {
         return res.status(400).json({

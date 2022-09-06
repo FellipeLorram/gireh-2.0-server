@@ -30,3 +30,5 @@ export class MongoDBAppointmentRepository implements IAppointmentRepository {
     return AppointmentModel.find().sort({ createdAt: -1 });
   }
 }
+
+export const appointmentRepository = new MongoDBAppointmentRepository();

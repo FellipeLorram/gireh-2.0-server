@@ -1,9 +1,10 @@
-import { sellsRepository } from '../../../Repositories/Sell/Implementation/MongoDBSellsRepository';
+import { appointmentRepository } from '../../../Repositories/Appointment/Implementation/MongoDBAppointmentRepository';
 import { messenger } from '../../../Utils/Messenger/Messenger';
-import { DeleteSellController } from './RemoveSellController';
-import { DeleteSellsUseCase } from './RemoveSellUseCase';
+import { RemoveAppointmentController } from './RemoveAppointmentController';
+import { RemoveAppointmentsUseCase } from './RemoveAppointmentUseCase';
 
-const deleteCustomerUseCase = new DeleteSellsUseCase(sellsRepository);
-const deleteSellController = new DeleteSellController(deleteCustomerUseCase, messenger);
+const removeAppointmentUseCase = new RemoveAppointmentsUseCase(appointmentRepository);
+const removeAppointmentController = new
+RemoveAppointmentController(removeAppointmentUseCase, messenger);
 
-export { deleteSellController };
+export { removeAppointmentController };

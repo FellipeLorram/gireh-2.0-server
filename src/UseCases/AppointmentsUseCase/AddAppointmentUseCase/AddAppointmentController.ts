@@ -3,7 +3,7 @@ import { uuid } from 'uuidv4';
 import { IMessenger } from '../../../Utils/Messenger/Messenger';
 import { AddAppointmentUseCase } from './AddAppointmentUseCase';
 
-export class AddCustomersController {
+export class AddAppointmentController {
   constructor(
     // eslint-disable-next-line no-unused-vars
     private addAppointmentUseCase: AddAppointmentUseCase,

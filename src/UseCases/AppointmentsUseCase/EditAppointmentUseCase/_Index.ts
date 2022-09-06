@@ -1,10 +1,10 @@
-import { sellsRepository } from '../../../Repositories/Sell/Implementation/MongoDBSellsRepository';
-import { EditSellsController } from './EditSellController';
-import { EditSellsUseCase } from './EditSellUseCase';
+import { appointmentRepository } from '../../../Repositories/Appointment/Implementation/MongoDBAppointmentRepository';
+import { EditAppointmentController } from './EditAppointmentController';
+import { EditAppointmentUseCase } from './EditAppointmentUseCase';
 import { messenger } from '../../../Utils/Messenger/Messenger';
 
-const editSellsUseCase = new EditSellsUseCase(sellsRepository);
-const editSellController = new
-EditSellsController(editSellsUseCase, messenger);
+const editAppointmentUseCase = new EditAppointmentUseCase(appointmentRepository);
+const editAppointmentController = new
+EditAppointmentController(editAppointmentUseCase, messenger);
 
-export { editSellController };
+export { editAppointmentController };
