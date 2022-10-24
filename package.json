@@ -4,10 +4,13 @@
   "main": "index.js",
   "author": "Fellipe Lorram <fellipelorram@gmail.com>",
   "license": "MIT",
+  "engines": { "node": "16.13.2" },
   "scripts": {
     "dev": "ts-node-dev --respawn --transpileOnly --ignore-watch node_modules --no-notify src/server.ts",
     "test": "jest --watchAll",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "postinstall": "tsc",
+    "deploy": "git add . && git commit -m Heroku && git push heroku master"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
