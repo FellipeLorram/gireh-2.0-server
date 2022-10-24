@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { IAppointment } from '../../Entities/Appointment';
+import { IAppointmentReport } from '../../Entities/Types/AppointmentReport';
 
 export interface IAppointmentRepository {
   AddAppointment(appointment: IAppointment): Promise<IAppointment>;
